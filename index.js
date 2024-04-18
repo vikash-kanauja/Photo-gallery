@@ -3,7 +3,6 @@ const popup = document.getElementById('popup');
 const popupImage = document.getElementById('popup-image');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
-const image = document.getElementsByClassName("galleryImg");
 const images = [
     "./images/1.jpg",
     "./images/2.jpg",
@@ -42,7 +41,6 @@ images.forEach((imageUrl, index) => {
     img.dataset.index = index;
     img.src = imageUrl;
     img.alt = `Image ${index + 1}`;
-    // img.addEventListener('click', () => openPopup(index));
     gallery.appendChild(img);
 });
 

@@ -20,10 +20,23 @@ const images = [
     "./images/14.jpg",
     "./images/15.jpg",
     "./images/16.jpg",
-    "./images/17.jpg",
-    "./images/18.jpg",
-    "./images/19.jpg",
-    "./images/20.jpg",
+    // "./images/17.jpg",
+    // "./images/18.jpg",
+    // "./images/19.jpg",
+    // "./images/20.jpg",
+    // "./images/21.jpg",
+    // "./images/22.jpg",
+    // "./images/23.jpg",
+    // "./images/24.jpg",
+    // "./images/25.jpg",
+    // "./images/26.jpg",
+    // "./images/27.jpg",
+    // "./images/28.jpg",
+    // "./images/29.jpg",
+    // "./images/30.jpg",
+
+
+
 ]
 let currentImageIndex = 0;
 
@@ -33,10 +46,16 @@ images.forEach((imageUrl, index) => {
     img.classList.add(
         "galleryImg",
         "block",
-        "w-[250px]",
-        "h-[250px]",
-        "2xl:w-[300px]",
-        "2xl:h-[300px]"
+        "w-[8rem]",
+        "h-[8rem]",
+        "sm:w-[10rem]",
+        "sm:h-[9rem]",
+        "lg:w-[14rem]",
+        "lg:h-[9rem]",
+        "xl:w-[19.3rem]",
+        "xl:h-[14.5rem]",
+        "2xl:w-[16.5rem]",
+        "2xl:h-[13rem]"
     );
     img.dataset.index = index;
     img.src = imageUrl;
@@ -46,8 +65,8 @@ images.forEach((imageUrl, index) => {
 
 // Assuming gallery is the parent element containing all the img elements
 gallery.addEventListener('click', (event) => {
-        const dataIndex = event.target.dataset.index;
-        openPopup(dataIndex);
+    const dataIndex = event.target.dataset.index;
+    openPopup(dataIndex);
 });
 
 
@@ -69,7 +88,7 @@ function closePopupOutside(event) {
     }
 }
 
- // Event listener for next button click
+// Event listener for next button click
 nextBtn.addEventListener('click', () => {
     currentImageIndex++;
     if (currentImageIndex >= images.length) {
@@ -96,10 +115,10 @@ const showAndHideNavButtons = () => {
     }
     else if (currentImageIndex == images.length - 1) {
         prevBtn.style.visibility = "visible";
-            nextBtn.style.visibility = "hidden";
+        nextBtn.style.visibility = "hidden";
     }
     else {
         prevBtn.style.visibility = "visible";
-            nextBtn.style.visibility = "visible";
+        nextBtn.style.visibility = "visible";
     }
 }

@@ -39,15 +39,14 @@ const images = [
 let currentImageIndex = 0;
 
 // Create gallery images dynamically
+
 images.forEach((imageUrl, index) => {
     const img = document.createElement('img');
     img.classList.add(
         "galleryImg",
         "block",
-        "grow",
-        "w-[32%]",
+        "w-full",
         "h-[3.5rem]",
-        "sm:w-[15%]",
         "sm:h-[6rem]",
         "lg:h-[6rem]",
         "xl:h-[9rem]",
@@ -115,3 +114,48 @@ const showAndHideNavButtons = () => {
         nextBtn.style.visibility = "visible";
     }
 }
+
+// Select field for setting the number of images per row
+const imagesPerRowSelect = document.getElementById('images-per-row');
+let num = imagesPerRowSelect.value;
+console.log(num);
+imagesPerRowSelect.addEventListener('change', () => {
+        num = imagesPerRowSelect.value;
+        setGrid(imagesPerRowSelect.value);
+});
+
+const setGrid = (num) =>{
+    gallery.style.gridTemplateColumns = `repeat(${num}, minmax(0, 1fr))`;
+}
+setGrid(num);
+
+// Checkbox for enabling keyboard navigation
+const backdropCheckbox = document.getElementById('backdrop-checkbox');
+backdropCheckbox.addEventListener('change', () => {
+    if (backdropCheckbox.checked) {
+        popupModal.classList.add("bg-opacity-60");
+    } else {
+        popupModal.classList.remove("bg-opacity-60");
+    }
+});
+
+// Checkbox for enabling keyboard navigation
+const keyboardCheckbox = document.getElementById('keyboard-nav-checkbox');
+keyboardCheckbox.addEventListener('change', () => {
+    if (keyboardCheckbox.checked) {
+        document.addEventListener('keydown', handleKeyboardNavigation);
+    } else {
+        document.removeEventListener('keydown', handleKeyboardNavigation);
+    }
+});
+
+// Function to handle keyboard navigation
+const handleKeyboardNavigation = (event)=> {
+    if (event.key === 'ArrowLeft') {
+        prevBtn.click();
+    } else if (event.key === 'ArrowRight') {
+        nextBtn.click();
+    }
+}
+
+// Initialize gallery

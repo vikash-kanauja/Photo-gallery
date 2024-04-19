@@ -1,5 +1,5 @@
 const gallery = document.getElementById('gallery');
-const popupModel = document.getElementById('popup');
+const popupModal = document.getElementById('popup');
 const popupImage = document.getElementById('popup-image');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
@@ -68,17 +68,17 @@ gallery.onclick = (event) => {
 
 const openPopup = (index) => {
         popupImage.src = images[index];
-        popupModel.classList.remove("hidden");
+        popupModal.classList.remove("hidden");
         currentImageIndex = index;
         showAndHideNavButtons();
         // Add event listener to close popup when clicking outside the image
-        popupModel.addEventListener('click', closePopupOutside);
+        popupModal.addEventListener('click', closePopup);
     }
 
-const closePopupOutside = (event)=> {
-    if (event.target === popupModel) {
-        popupModel.classList.add("hidden")
-        popupModel.removeEventListener('click', closePopupOutside);
+const closePopup = (event)=> {
+    if (event.target === popupModal) {
+        popupModal.classList.add("hidden")
+        popupModal.removeEventListener('click', closePopup);
     }
 }
 

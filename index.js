@@ -1,5 +1,5 @@
 const gallery = document.getElementById('gallery');
-const popup = document.getElementById('popup');
+const popupModel = document.getElementById('popup');
 const popupImage = document.getElementById('popup-image');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
@@ -49,7 +49,7 @@ images.forEach((imageUrl, index) => {
         "h-[3.5rem]",
         "sm:w-[15%]",
         "sm:h-[6rem]",
-        "lg:h-[7rem]",
+        "lg:h-[6rem]",
         "xl:h-[9rem]",
         "2xl:h-[18rem]",
         "cursor-pointer",
@@ -61,49 +61,44 @@ images.forEach((imageUrl, index) => {
     gallery.appendChild(img);
 });
 
-// Assuming gallery is the parent element containing all the img elements
-gallery.addEventListener('click', (event) => {
+gallery.onclick = (event) => {
     const dataIndex = event.target.dataset.index;
     openPopup(dataIndex);
-});
+};
 
+const openPopup = (index) => {
+        popupImage.src = images[index];
+        popupModel.classList.remove("hidden");
+        currentImageIndex = index;
+        showAndHideNavButtons();
+        // Add event listener to close popup when clicking outside the image
+        popupModel.addEventListener('click', closePopupOutside);
+    }
 
-// Open popup
-function openPopup(index) {
-    popupImage.src = images[index];
-    popup.classList.remove("hidden");
-    currentImageIndex = index;
-    showAndHideNavButtons();
-    // Add event listener to close popup when clicking outside the image
-    popup.addEventListener('click', closePopupOutside);
-}
-
-// Function to close popup when clicking outside the image
-function closePopupOutside(event) {
-    if (event.target === popup) {
-        popup.classList.add("hidden")
-        popup.removeEventListener('click', closePopupOutside);
+const closePopupOutside = (event)=> {
+    if (event.target === popupModel) {
+        popupModel.classList.add("hidden")
+        popupModel.removeEventListener('click', closePopupOutside);
     }
 }
 
-// Event listener for next button click
-nextBtn.addEventListener('click', () => {
+nextBtn.onclick = () => {
     currentImageIndex++;
     if (currentImageIndex >= images.length) {
         currentImageIndex = 0;
     }
     popupImage.src = images[currentImageIndex];
     showAndHideNavButtons()
-});
+};
 // Event listener for previous button click
-prevBtn.addEventListener('click', () => {
+prevBtn.onclick = () => {
     currentImageIndex--;
     if (currentImageIndex < 0) {
         currentImageIndex = images.length - 1;
     }
     popupImage.src = images[currentImageIndex];
     showAndHideNavButtons()
-});
+};
 
 // show and hidde next and previous button
 const showAndHideNavButtons = () => {

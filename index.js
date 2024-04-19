@@ -20,6 +20,20 @@ const images = [
     "./images/14.jpg",
     "./images/15.jpg",
     "./images/16.jpg",
+    "./images/17.jpg",
+    "./images/18.jpg",
+    "./images/19.jpg",
+    "./images/20.jpg",
+    "./images/21.jpg",
+    "./images/22.jpg",
+    "./images/23.jpg",
+    "./images/24.jpg",
+    "./images/25.jpg",
+    "./images/26.jpg",
+    "./images/27.jpg",
+    "./images/28.jpg",
+    "./images/29.jpg",
+    "./images/30.jpg",
 
 ]
 let currentImageIndex = 0;
@@ -30,16 +44,16 @@ images.forEach((imageUrl, index) => {
     img.classList.add(
         "galleryImg",
         "block",
-        "w-[8rem]",
-        "h-[8rem]",
-        "sm:w-[10rem]",
-        "sm:h-[9rem]",
-        "lg:w-[14rem]",
-        "lg:h-[9rem]",
-        "xl:w-[19.3rem]",
-        "xl:h-[14.5rem]",
-        "2xl:w-[16.5rem]",
-        "2xl:h-[13rem]"
+        "grow",
+        "w-[32%]",
+        "h-[3.5rem]",
+        "sm:w-[15%]",
+        "sm:h-[6rem]",
+        "lg:h-[7rem]",
+        "xl:h-[9rem]",
+        "2xl:h-[18rem]",
+        "cursor-pointer",
+        "hover:opacity-80"
     );
     img.dataset.index = index;
     img.src = imageUrl;

@@ -1,0 +1,30 @@
+@media screen and (min-width:2000px) {
+    .galleryImg img{
+        height: 18rem;
+    }
+    #select__box{
+        gap: 30px;
+    }
+    #select_label{
+        font-size: 48px;
+    }
+    #images-per-row{
+        padding: 12px;
+        border-radius: 16px;
+        font-size: 30px;
+    }
+    #backdrop_label , #keyboard{
+        font-size: 48px;
+    }
+    #backdrop-checkbox , #keyboard-nav-checkbox{
+        width: 80px;
+        height: 40px;
+    }
+    #prev , #prev-logo{
+        font-size: 48px;
+    }
+    #next , #next-logo{
+        font-size: 48px;
+    }
+    
+}
